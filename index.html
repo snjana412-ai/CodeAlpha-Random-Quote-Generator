@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Random Quote Generator</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f4f7fb;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 650px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .quote-box {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        #quote {
+            font-size: 24px;
+            line-height: 1.5;
+            color: #222;
+            margin-bottom: 20px;
+        }
+
+        #author {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        @media (max-width: 600px) {
+            .quote-box {
+                padding: 30px 20px;
+            }
+
+            #quote {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>✨ Random Quote Generator</h1>
+
+        <p class="subtitle">
+            Get a little inspiration with every click
+        </p>
+
+        <div class="quote-box">
+
+            <p id="quote"></p>
+
+            <p id="author"></p>
+
+            <button onclick="newQuote()">
+                New Quote
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        const quotes = [
+            {
+                text: "Believe in yourself and keep moving forward.",
+                author: "Anonymous"
+            },
+            {
+                text: "Small steps every day create big results.",
+                author: "Anonymous"
+            },
+            {
+                text: "Every new day is a chance to learn something new.",
+                author: "Anonymous"
+            },
+            {
+                text: "Success begins with the decision to try.",
+                author: "Anonymous"
+            },
+            {
+                text: "Your effort today builds your future tomorrow.",
+                author: "Anonymous"
+            },
+            {
+                text: "Stay patient, keep learning, and never give up.",
+                author: "Anonymous"
+            },
+            {
+                text: "Great things grow from consistent effort.",
+                author: "Anonymous"
+            }
+        ];
+
+
+        function newQuote() {
+
+            const randomIndex =
+                Math.floor(Math.random() * quotes.length);
+
+            document.getElementById("quote").innerText =
+                '"' + quotes[randomIndex].text + '"';
+
+            document.getElementById("author").innerText =
+                "— " + quotes[randomIndex].author;
+        }
+
+
+        // Display a random quote when the app opens
+        newQuote();
+
+    </script>
+
+</body>
+</html>
